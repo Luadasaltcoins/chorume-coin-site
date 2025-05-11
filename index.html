@@ -1,92 +1,109 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Chorume Coin (CHRM)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chorume Coin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #f8f2e7;
-      font-family: monospace;
-      color: #111;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+      font-family: 'Orbitron', sans-serif;
     }
-
-    .logo {
-      display: block;
-      margin: 0 auto 2rem;
-      width: 200px;
+    .glitch-hover:hover {
+      animation: glitch 0.3s infinite;
     }
-
-    h1 {
-      font-size: 1.8rem;
-      color: #ff0055;
-      text-shadow: 1px 1px 0 #00ffcc;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .buttons {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      background: linear-gradient(45deg, #00ffcc, #ff00cc, #00ccff);
-      border: none;
-      padding: 1rem;
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 2px 2px 0 #000;
-      transition: transform 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      cursor: pointer;
-    }
-
-    .sub {
-      font-size: 0.9rem;
-      display: block;
-      margin-top: 0.3rem;
-      color: #222;
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(1px, -1px); }
+      60% { transform: translate(-1px, -1px); }
+      80% { transform: translate(1px, 1px); }
+      100% { transform: translate(0); }
     }
   </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-zinc-900 to-black text-white overflow-x-hidden">
+  
+  <!-- Hero -->
+  <section class="min-h-screen flex flex-col items-center justify-center px-6 text-center relative">
+    <div class="w-40 h-40 mb-8 bg-zinc-800 rounded-full animate-pulse shadow-xl"></div>
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+      A moeda <span class="text-lime-400">mais questionável</span> do mercado
+    </h1>
+    <p class="text-zinc-400 text-lg max-w-xl">
+      O projeto mais ousado desde a invenção do lixo eletrônico.
+    </p>
+    <button class="mt-8 px-6 py-3 bg-lime-500 hover:bg-lime-400 transition rounded-full font-semibold glitch-hover">
+      Comprar no impulso
+    </button>
+  </section>
 
-  <img src="mylogo.png" alt="Logo Chorume Coin" class="logo">
+  <!-- Sobre -->
+  <section class="py-24 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">Sobre a Chorume Coin</h2>
+    <p class="text-zinc-400 leading-relaxed">
+      Criada no fundo de um grupo de WhatsApp e lapidada com zero fundamentos.  
+      Chorume Coin é mais que uma moeda, é uma experiência antropológica.
+    </p>
+  </section>
 
-  <h1>A Chorume Coin (CHRM) — a moeda mais tóxica da web!</h1>
+  <!-- Tokenomics -->
+  <section class="py-24 bg-zinc-950 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Tokenomics</h2>
+    <div class="w-40 h-40 mx-auto border-4 border-lime-400 rounded-full relative animate-spin-slow">
+      <div class="absolute inset-0 flex items-center justify-center text-sm">
+        42% Para o Meme
+      </div>
+    </div>
+    <p class="mt-4 text-zinc-400">E o resto? Foi para a zueira.</p>
+  </section>
 
-  <p>
-    Nascida dos comentários de redes sociais e discussões bizarras do Twitter, veio transformar cada gota de chorume digital em valor de mercado.
-  </p>
-  <p>🚀 Zero promessas de Lua — talvez só o Limbo.<br>
-     🧪 Zero utilidade.<br>
-     💩 100% caos.</p>
-  <p>
-    Lastreada em memes, tretas e postagens duvidosas.<br>
-    <strong>Segure seu CHRM. Não leia os comentários.</strong>
-  </p>
+  <!-- Roadmap -->
+  <section class="py-24 px-6 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12">Roadmap</h2>
+    <div class="space-y-10">
+      <div class="border-l-2 border-lime-400 pl-4 relative">
+        <span class="absolute -left-3 top-1 w-4 h-4 bg-lime-400 rounded-full"></span>
+        Q2 2025 - Lançamento no grito
+      </div>
+      <div class="border-l-2 border-lime-400 pl-4 relative">
+        <span class="absolute -left-3 top-1 w-4 h-4 bg-lime-400 rounded-full"></span>
+        Q3 2025 - Pump fake coordenado
+      </div>
+      <div class="border-l-2 border-lime-400 pl-4 relative">
+        <span class="absolute -left-3 top-1 w-4 h-4 bg-lime-400 rounded-full"></span>
+        Q4 2025 - Nova promessa de whitepaper
+      </div>
+    </div>
+  </section>
 
-  <div class="buttons">
-    <a class="btn" href="#comprar">
-      COMPRE CHRM<br><span class="sub">(se tiver coragem)</span>
-    </a>
-    <a class="btn" href="#whitepaper">
-      LEIA O WHITEPAPER<br><span class="sub">(não faça isso)</span>
-    </a>
-  </div>
+  <!-- Equipe -->
+  <section class="py-24 px-6 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12">A Equipe (se é que existe)</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="group relative">
+        <div class="w-32 h-32 bg-zinc-700 rounded-full mx-auto mb-4 transition group-hover:blur-sm"></div>
+        <p class="text-zinc-300 font-semibold">Anônimo #1</p>
+        <p class="text-xs text-zinc-500 group-hover:text-lime-400 transition">"Ex-estagiário da Faria Lima"</p>
+      </div>
+      <div class="group relative">
+        <div class="w-32 h-32 bg-zinc-700 rounded-full mx-auto mb-4 transition group-hover:blur-sm"></div>
+        <p class="text-zinc-300 font-semibold">Trader Misterioso</p>
+        <p class="text-xs text-zinc-500 group-hover:text-lime-400 transition">"Acertou 1 em 9 calls"</p>
+      </div>
+      <div class="group relative">
+        <div class="w-32 h-32 bg-zinc-700 rounded-full mx-auto mb-4 transition group-hover:blur-sm"></div>
+        <p class="text-zinc-300 font-semibold">AI CEO</p>
+        <p class="text-xs text-zinc-500 group-hover:text-lime-400 transition">"Gerado por prompt mal escrito"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 text-center text-zinc-500 text-sm">
+    Chorume Coin™ — Nenhum direito reservado. Invista por sua conta e risco (sério).
+  </footer>
 
 </body>
 </html>
