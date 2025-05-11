@@ -1,99 +1,223 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chorume Coin (CHRM)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rubik&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chorume Coin</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background: linear-gradient(145deg, #1f1f1f, #3a3a3a);
-      color: #f0f0f0;
+      background: radial-gradient(ellipse at center, #0e0f11 0%, #050607 100%);
+      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: #e5e5e5;
     }
-    header {
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       padding: 2rem;
+      z-index: 1;
     }
-    header img {
-      width: 180px;
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    h1, h2 {
+      background: linear-gradient(90deg, #39ff14, #bfff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     h1 {
-      font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
-      margin-top: 1rem;
+      margin: 0;
+      font-weight: 800;
+      z-index: 2;
     }
-    .section {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 1rem;
-      background-color: #2b2b2b;
-      border-radius: 12px;
-      box-shadow: 0 0 12px #00ff99aa;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    .section h2 {
-      color: #00ff99;
-      border-bottom: 1px solid #00ff99;
-      padding-bottom: 0.5rem;
+    p {
+      font-size: 1.2rem;
+      color: #b0b0b0;
+      margin: 1rem 0;
+      z-index: 2;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    table td, table th {
-      padding: 0.75rem;
-      border-bottom: 1px solid #555;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #00ff99;
+    .btn {
+      background: #39ff14;
       color: #000;
+      padding: 1rem 2rem;
+      border-radius: 50px;
       font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px #39ff14aa;
+      transition: transform 0.2s ease;
+      z-index: 2;
     }
-    .button:hover {
-      background-color: #00cc77;
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .tokenomics, .roadmap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .token-box, .roadmap-step {
+      background: #161616;
+      border-radius: 1rem;
+      padding: 2rem;
+      flex: 1 1 300px;
+      box-shadow: 0 0 10px #39ff1477;
+      text-align: center;
+    }
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .member {
+      background: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      width: 220px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .member:hover .secret {
+      opacity: 1;
+    }
+    .secret {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
     }
     footer {
       text-align: center;
-      margin: 2rem;
+      padding: 2rem;
       font-size: 0.9rem;
-      color: #999;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Chorume Coin Logo">
-    <h1>Chorume Coin (CHRM)</h1>
-    <p>A cripto irreverente que escorre pelo blockchain com bom humor e ousadia.</p>
-    <a href="#" class="button">Comprar CHRM</a>
-  </header>  <section class="section">
+  <div class="hero">
+    <canvas id="coinCanvas"></canvas>
+    <h1>Chorume Coin</h1>
+    <p>A cripto que ninguém pediu — mas todo mundo vai ter.</p>
+    <button class="btn" onclick="location.href='https://dexlink.com/chorume-buy'">Comprar CHRM</button>
+  </div>  <section>
+    <h2>O que é a Chorume Coin?</h2>
+    <p>Chorume Coin é uma moeda criada por gente comum, para gente ainda mais comum. Inspirada nas maiores meme coins do mundo, mas com um tempero 100% brasileiro e sem papas na língua.</p>
+  </section>  <section>
     <h2>Tokenomics</h2>
-    <table>
-      <tr><td>Suprimento total</td><td>1.000.000.000 CHRM</td></tr>
-      <tr><td>Liquidez inicial</td><td>50%</td></tr>
-      <tr><td>Queima irreversível</td><td>25%</td></tr>
-      <tr><td>Marketing e memes</td><td>15%</td></tr>
-      <tr><td>Equipe e devs</td><td>10%</td></tr>
-    </table>
-  </section>  <section class="section">
+    <div class="tokenomics">
+      <div class="token-box">
+        <h3>Suprimento Total</h3>
+        <p>1.000.000.000.000 CHRM</p>
+      </div>
+      <div class="token-box">
+        <h3>Liquidez</h3>
+        <p>Trancada por 1 ano</p>
+      </div>
+      <div class="token-box">
+        <h3>Taxas</h3>
+        <p>0% de compra e venda</p>
+      </div>
+    </div>
+  </section>  <section>
     <h2>Roadmap</h2>
-    <ul>
-      <li>Lançamento da token</li>
-      <li>Primeira leva de memes (e merchan tóxico)</li>
-      <li>Listagem em DEX</li>
-      <li>NFT de tambor radioativo</li>
-      <li>Parcerias com projetos-meme</li>
-    </ul>
-  </section>  <section class="section">
-    <h2>Comunidade</h2>
-    <p>Entre na nossa comunidade tóxica:</p>
-    <ul>
-      <li><a href="#" style="color: #00ff99;">Telegram Oficial</a></li>
-      <li><a href="#" style="color: #
+    <div class="roadmap">
+      <div class="roadmap-step">
+        <h3>Fase 1</h3>
+        <p>Lançamento, comunidade Telegram e 10 holders (contando o cachorro).</p>
+      </div>
+      <div class="roadmap-step">
+        <h3>Fase 2</h3>
+        <p>Primeiro meme viral, listagem no CoinGecko (ou tentativa).</p>
+      </div>
+      <div class="roadmap-step">
+        <h3>Fase 3</h3>
+        <p>Marketing insano, parcerias com influencers que nem sabem o que é blockchain.</p>
+      </div>
+      <div class="roadmap-step">
+        <h3>Fase Final</h3>
+        <p>Dominação mundial (ou pelo menos do grupo da família).</p>
+      </div>
+    </div>
+  </section>  <section>
+    <h2>Time</h2>
+    <div class="team">
+      <div class="member">
+        <h3>@dev_chorume</h3>
+        <p>Fundador e CEO das ideias ruins.</p>
+        <div class="secret">Na real, programou tudo vendo tutorial no YouTube.</div>
+      </div>
+      <div class="member">
+        <h3>Sr. Lixo</h3>
+        <p>CMO (Chief Meme Officer)</p>
+        <div class="secret">Só tá aqui porque manda bem nos stickers.</div>
+      </div>
+      <div class="member">
+        <h3>CHRM Bot</h3>
+        <p>Social Media</p>
+        <div class="secret">É um bot que só posta "gm" todo dia.</div>
+      </div>
+    </div>
+  </section>  <footer>
+    Feito com ironia por pessoas comuns. © Chorume Coin 2025
+  </footer>  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('coinCanvas'), alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    const geometry = new THREE.CylinderGeometry(2, 2, 0.2, 64);
+    const material = new THREE.MeshStandardMaterial({
+      color: 0xcccc00,
+      metalness: 1,
+      roughness: 0.3,
+      emissive: 0x228822,
+    });
+    const coin = new THREE.Mesh(geometry, material);
+    scene.add(coin);
+
+    const light = new THREE.PointLight(0x39ff14, 2, 100);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+
+    camera.position.z = 5;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      coin.rotation.x += 0.01;
+      coin.rotation.y += 0.02;
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script></body>
+</html>
