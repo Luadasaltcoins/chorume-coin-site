@@ -3,13 +3,118 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chorume Coin</title>
-  <style>
-    body {
+  <style> 
+  .community-section {
+  background: radial-gradient(circle at center, #1f1f1f, #0d0d0d);
+  color: #f0f0f0;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 2px solid #00ff88;
+}
+
+.community-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff88;
+}
+
+.community-section p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #ccc;
+}
+
+.community-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-telegram {
+  background: #0088cc;
+}
+
+.btn-twitter {
+  background: #1da1f2;
+}
+
+.btn-dex {
+  background: #ff0077;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+    .tokenomics-section {
+  background: linear-gradient(to bottom, #111, #000);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 2px solid #ffcc00;
+}
+
+.tokenomics-section h2 {
+  font-size: 2.5rem;
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00;
+  margin-bottom: 10px;
+}
+
+.tokenomics-section p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #ccc;
+}
+
+#tokenomicsChart {
+  max-width: 400px;
+  margin: 0 auto;
+}
+   <script>
+  // Parallax suave nos elementos com classe .parallax
+  window.addEventListener("scroll", function () {
+    const elements = document.querySelectorAll(".parallax");
+    elements.forEach(el => {
+      const speed = el.getAttribute("data-speed");
+      el.style.transform = `translateY(${window.scrollY * speed}px)`;
+    });
+  });
+</script> body {
+ <section id="tokenomics" class="tokenomics-section">
+  <h2>Tokenomics Chorumental</h2>
+  <p>Transparente? Nem tanto. Mas divertido? Sempre. Veja pra onde vai o suado chorume!</p>
+  <canvas id="tokenomicsChart" width="300" height="300"></canvas>
+</section>
       margin: 0;
       background: radial-gradient(ellipse at center, #0e0f11 0%, #050607 100%);
       overflow-x: hidden;
       font-family: 'Segoe UI', sans-serif;
       color: #e5e5e5;
+  <section id="comunidade" class="community-section">
+  <h2>Junte-se à Comunidade Chorume</h2>
+  <p>A moeda mais zoeira do universo cripto. Criada por gente como você, pra quem cansou de promessas e quer risada com potencial de alta!</p>
+  <div class="community-buttons">
+    <a href="https://t.me/seutelegram" target="_blank" class="btn btn-telegram">Entrar no Telegram</a>
+    <a href="https://x.com/seuusuario" target="_blank" class="btn btn-twitter">Seguir no Twitter</a>
+    <a href="https://www.dextools.io/app/pt/ether/pair-explorer/0x123456" target="_blank" class="btn btn-dex">Ver no DEXTools</a>
+  </div>
+</section>
     }
     section {
       padding: 4rem 2rem;
@@ -124,8 +229,188 @@
       color: #555;
     }
   </style>
+  .team-section {
+  background: #111;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  color: #ffcc00;
+  margin-bottom: 60px;
+  text-shadow: 0 0 10px #ffcc00;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.member {
+  background: #1c1c1c;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px #00ffcc50;
+  cursor: pointer;
+}
+
+.member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #00ffccaa;
+}
+
+.member img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.member .info {
+  padding: 20px;
+}
+
+.member h3 {
+  font-size: 1.4rem;
+  color: #00ffcc;
+}
+
+.member p {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 10px;
+}
+  .roadmap-section {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  border-top: 2px solid #ffcc00;
+}
+
+.roadmap-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #ffcc00;
+  text-shadow: 0 0 8px #ffcc00;
+}
+
+.roadmap-timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.milestone {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.milestone .dot {
+  width: 20px;
+  height: 20px;
+  background-color: #ffcc00;
+  border-radius: 50%;
+  margin-right: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 0 15px #ffcc00;
+}
+
+.milestone .content {
+  text-align: left;
+  animation: fadeInUp 1s ease;
+}
+
+.milestone h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  color: #00ffcc;
+}
+
+.milestone p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </head>
 <body>
+  <section id="team" class="team-section">
+  <h2>Time por trás do Chorume</h2>
+  <div class="team-grid">
+    <div class="member">
+      <img src="https://i.imgur.com/4ZQZ4JH.png" alt="Dev Misterioso">
+      <div class="info">
+        <h3>Dev Fantasma</h3>
+        <p>No one knows. Maybe nem ele sabe. Codou o smart contract às 3 da manhã, bêbado de café.</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="https://i.imgur.com/M0jFz7W.png" alt="Marketing Wizard">
+      <div class="info">
+        <h3>Marketing Ninja</h3>
+        <p>Especialista em memes virais e promessas exageradas. Já foi banido de 3 redes.</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="https://i.imgur.com/H7ZqUq0.png" alt="Suporte Anônimo">
+      <div class="info">
+        <h3>Suporte Anônimo</h3>
+        <p>Responde no Telegram com GIFs. Nunca resolve nada, mas é gente boa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  <section id="roadmap" class="roadmap-section">
+  <h2>Roadmap Chorumental</h2>
+  <div class="roadmap-timeline">
+    <div class="milestone">
+      <span class="dot"></span>
+      <div class="content">
+        <h3>Fase 1 – Lançamento Aleatório</h3>
+        <p>Criação da moeda enquanto comíamos Doritos. Site pronto? Mais ou menos.</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <span class="dot"></span>
+      <div class="content">
+        <h3>Fase 2 – Engajamento Forçado</h3>
+        <p>Chuva de memes, promessas duvidosas, e um grupo no Telegram fervendo de stickers.</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <span class="dot"></span>
+      <div class="content">
+        <h3>Fase 3 – Listagens Sérias (?)</h3>
+        <p>Vamos tentar entrar na CoinGecko, CoinMarketCap e talvez até na sua carteira sem pedir licença.</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <span class="dot"></span>
+      <div class="content">
+        <h3>Fase 4 – Dominação Mundial</h3>
+        <p>Comprar uma Kombi, adesivar com $CHORUME e rodar o Brasil vendendo esperança cripto.</p>
+      </div>
+    </div>
+  </div>
+</section>
   <div class="hero">
     <canvas id="coinCanvas"></canvas>
     <h1>Chorume Coin</h1>
@@ -221,3 +506,9 @@
     animate();
   </script></body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
