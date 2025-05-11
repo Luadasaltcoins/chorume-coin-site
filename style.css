@@ -1,0 +1,65 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f0f0f;
+    color: #caff70;
+}
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+}
+.logo {
+    width: 100px;
+}
+.subtitle {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+.buy-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #39ff14;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+}
+section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+h2 {
+    color: #39ff14;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li::before {
+    content: '☢️ ';
+}
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+.card {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 12px;
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    font-size: 0.9em;
+}

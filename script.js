@@ -1,0 +1,1 @@
+console.log("Chorume Coin site loaded.");
